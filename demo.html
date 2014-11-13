@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Radar Plugin Demo by @danbetcher</title>
+    <style type="text/css">
+    .container { margin: 0 auto; width: 600px; }
+    
+    #target {
+        display: block;
+        margin: 50px 0;
+        width: 100px;
+        height: 100px;
+        border: 2px solid #000;
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Radar Plugin Demo</h1>
+        <p>Check out the <a href="https://github.com/danbetcher/jquery-radar">jQuery Radar Plugin project page on GitHub</a>.</p>
+        <div id="target"></div>
+    </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="jquery.radar.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#target").on("radar", {max:300}, function(e, radar, distance) {
+            
+            
+            if (radar === 0) {
+                // Out of Range
+                $(this).css({"background-color":"rgba(255,255,255,1)"});
+                
+                $(this).html("Out of Range.");
+            } else if (radar === 1) {
+                // Collision with Target
+                $(this).css({"background-color":"rgba(0,100,0,1)"});
+                
+                $(this).html("Collision with Target.");
+            } else {
+                // In Radar Range
+                $(this).css({"background-color":"rgba(200,0,0,"+radar.toFixed(3)+")"});
+                
+                $(this).html("Distance to Target:<br>" + distance.toFixed(1) + "px<br>Radar Sensor:<br>" + radar.toFixed(3));
+            }
+        });
+    });
+    </script>
+</body>
+</html>

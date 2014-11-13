@@ -27,15 +27,17 @@ $("#target").on("radar", $options, function(event, radar, distance) {
 
 **throttle**: Measured in milliseconds, this is the maximum frequency that your event handler will be called. If your experiencing performance issues, you can increase the throttle to reduce the processing load. [default: 0].
 
-**outOfRange**: 
+**outOfRange**: Determines the number of times an event will be fired once the cursor is out of range. It can be set to a number or a true/false boolean. If it is set to true, the event handler will be fired with every mouse movement. If it is set to false then you may not know when the cursor is moving outside the radar range. [default: 1].
 
 In most cases, the default values won't need to be set (except for `max`), but they can be changed after binding an event by setting your `event.data` which is passed into your handler.
 
 #### Callback Data:
 
-**event**: A standard jquery event object
-**radar**: a number between 0 and 1. The radar sensor value. 0 being out of range, or on the very limit of the boundry. 1 being a collision with the target element.
-**distance**: Measured in pixels, this is the distabce between the cursor and the target element.
+**event**: A standard jquery event object.
+
+**radar**: a number between 0 and 1. The radar sensor value. 0 being out of range, or on the very limit of the boundry. 1 being a collision with the target element. No matter how far out side the range your cursor is, this number will never go below 0.
+
+**distance**: Measured in pixels, this is the distance between the cursor and the target element.
 
 
 #### Demo:

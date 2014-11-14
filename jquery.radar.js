@@ -1,4 +1,15 @@
-/*! https://github.com/danbetcher/jquery-radar by @danbetcher */
+/*
+ *	jQuery Radar Plugin
+ *
+ *	Copyright (c) Dan Betcher
+ *	https://www.twitter.com/danbetcher
+ *
+ *	Documentation:
+ *	https://github.com/danbetcher/jquery-radar
+ *
+ *	Licensed under the MIT license.
+ *	http://en.wikipedia.org/wiki/MIT_License
+ */
 ;(function($){
     
     var elems = $([]);
